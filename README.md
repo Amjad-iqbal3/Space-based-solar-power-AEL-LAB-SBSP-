@@ -21,8 +21,7 @@ and radiated through a $200\\mathrm{m} \times 200\\mathrm{m}$ phased-array trans
 delivering ${160}-{360} \text{kW}$ to a co-located pilot load, with the cumulative sun-to-load efficiency $\eta_{\mathrm{total}}$ ranging from 14\% - 20\% over a 24-hour operational average.
 
 # Proposed Constellation geometry
-The proposed constellation is described by the Walker delta notation $\mathcal{W}(T/P/F)$, where $T = S = 20$ is the total number of satellites, $P = 4$ is the number of equally spaced orbital planes, and $F = 1$ is the phasing parameter that determines the inter-plane mean-anomaly offset. Each plane contains $S/P = 5$ satellites, equally spaced in mean anomaly by $\Delta M = 2\pi/(S/P)$. We place each satellite in a circular orbit at an altitude of $h = \text{450 km}$.
-![Descriptive Alt Text](C:\Users\iqbala2\Downloads\system_overview)
+The proposed constellation is described by the Walker delta notation $\mathcal{W}(T/P/F)$, where $T = S = 20$ is the total number of satellites, $P = 4$ is the number of equally spaced orbital planes, and $F = 1$ is the phasing parameter that determines the inter-plane mean-anomaly offset. Each plane contains $S/P = 5$ satellites, equally spaced in mean anomaly by $\Delta M = 2\pi/(S/P)$. We place each satellite in a circular orbit at an altitude of $h = \text{450 km}$. Please refer to the ![Proposed Model](C:\Users\iqbala2\Downloads\system_overview_page-0001) for the system model.
 
 ---
 ## 2. Two Tier 
