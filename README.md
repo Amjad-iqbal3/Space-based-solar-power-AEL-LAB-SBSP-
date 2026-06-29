@@ -90,4 +90,6 @@ The overall summary for all the proposed approaches:\
 ## 6. Results
 Please add the exact directory in plot_v4 and main.py to generate the figures. All the figures will go to Journal_figure folder. If any issue encounter during the simulation run time please don't hesitate to contact us:\
 **Acknowledgment**: This work is performed in the Advanced Network and Embedded systems Lab under the supervision of Prof. Peng Hu at university of Manitoba.\
-Please cite “A. iqbal, M. Alhassan and P. Hu, “Constellation-Level Power Allocation for Space-Based Solar Power: A Two-Tier Scheduling Framework with Optimality Bounds.”
+Please cite\
+1. “A. iqbal, M. Alhassan and P. Hu, “Constellation-Level Power Allocation for Space-Based Solar Power: A Two-Tier Scheduling Framework with Optimality Bounds.”, submitted to IEEE Transactions on Wireless Communication (TWC), 20th June 2026.
+2. M. Alhassan, A. iqbal, and P. Hu,"Constellation-Level Power Allocation for LEO Space-Based Solar Power", submitted to IEEE Vehicuar Technology Conference (VTC), 11th May 2026.
