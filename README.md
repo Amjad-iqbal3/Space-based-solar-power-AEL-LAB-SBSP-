@@ -43,4 +43,51 @@ The inner tier operates independently on each satellite. The inner-tier task is 
 The inner-tier output is a transmit matrix that satisfies all per-satellite constraints but may violate two aggregate constraints that couple decisions across satellites, such as the ICNIRP power-density cap at each GS and the per-station demand cap. The outer tier enforces both constraints sequentially.
 
 Beside the ***inner tire*** and ***outer tire***, we also considered ***Centralized linear programming (LP) benchmark*** that bound the suboptimality of the heuristic policies, we compute a centralized LP benchmark that solves the entire constellation-level allocation problem at each time step. LP
-approaches to satellite RA have been successfully demonstrated for dynamic frequency assignment in non-geostationary constellations; we adapt this methodology to the SBSP power-allocation setting. The overall Two-tier constellation-level power allocator architecture can be found below. The inner tier executes one of the proposed heuristic policies independently for each satellite, using only its locally visible set of GSs. The resulting per-satellite allocations are passed to the outer tier, which enforces the aggregate ICNIRP exposure cap and the per-station demand cap at the constellation level. The bottom strip provides physical context: the Walker constellation supplies the per-satellite RF budget to the inner tier; the free-space and atmospheric channel applies the Goubau–Brown beam-coupling and ITU-R P.618 models (Section III-B); and the GS cluster receives the outer tier’s allocated transmit powers for rectification to DC
+approaches to satellite RA have been successfully demonstrated for dynamic frequency assignment in non-geostationary constellations; we adapt this methodology to the SBSP power-allocation setting. The overall Two-tier constellation-level power allocator architecture can be found below. The inner tier executes one of the proposed heuristic policies independently for each satellite, using only its locally visible set of GSs. The resulting per-satellite allocations are passed to the outer tier, which enforces the aggregate ICNIRP exposure cap and the per-station demand cap at the constellation level. The bottom strip provides physical context: the Walker constellation supplies the per-satellite RF budget to the inner tier; the free-space and atmospheric channel applies the Goubau–Brown beam-coupling and ITU-R P.618 models (Section III-B); and the GS cluster receives the outer tier’s allocated transmit powers for rectification to DC.
+
+
+<img src="allocator_arch_page-0001.jpg" alt="Project Screenshot" width="300" class="center-img">
+
+
+## 3. Repository Structure
+There are basically 3 script files, 2 main figures and a readme file.
+
+1. SBSP_env.py (All the proposed architecture and description can be found here) \
+2. plot.py ( plot setting, dimension, size, color and allocator setting)\
+3. main.py ( argparse paramters, evaluation and figure generation)\
+4. allocator_arch_page-0001.jpg/ # proposed three allocator framework \
+5. system_overview_page-0001.jpg (proposed Walker constellation) \
+6. README.md # code working description
+
+---
+## 4. Installation
+
+Clone the repository and install the dependencies:
+
+pip install -r requirements.txt
+Requirements (used packages for this project):\
+
+torch==         2.11.0+cpu \
+numpy==         2.2.6 \
+scipy==         1.15.3 \
+matplotlib==    3.10.8 \
+tqdm==          4.67.3\
+
+---
+
+## 5. Usage
+
+Check and update the SBSP_env.py file and fix the parameters according to environment. In this proposed work, we have assumed the walker constellation $\mathcal{W}(T/P/F)$, where we assume $20$ satellites and equally spaced into $P = 4$ orbital planes, and a phasing parameter offset $F = 1$ determines the inter-plane mean-anomaly. Each plane contains $S/P = 5$ satellites, equally spaced in mean anomaly by $\Delta M = 2\pi/(S/P)$. We place each satellite in a circular orbit at an altitude of $h = \text{450 km}$. Please refer to the below figure for the system model.
+Key Findings:\
+• Headline allocator performance at the canonical scenario: In Fig. 3, we showed 24-hour mean total delivered DC power, the Jain fairness index across the eight GS, and the worst-case per- station DMR for each of the four policies. \
+• Per-Station 24-hour mean delivered DC power for each of the eight GS under each of the four policies.\
+• The satellite visibility across all time steps with number of GSs visible within each satellite’s $5^{\circ}$ minimum-elevation mask\
+The overall summary for all the proposed approaches:\
+**The main finding is that the CO- DC policy, under the full two-tier architecture, consistently approaches the LP upper bound at low demand and across the tested demand range. In the headline scenario, it achieves a mean delivered DC within 2.58% of optimal and a Jain fairness index of 0.971. The greedy allocator performs competitively across the full architecture; however, it collapses to a 32.99% gap when the outer tier is removed, revealing its near-total reliance on redistribution passes that CO-DC largely handles internally. The PF deteriorates at every tested demand level and is not suitable for hard-demand SBSP settings. At high demand, greedy recovers and slightly outperforms CO-DC, whereas its fragility at low demand makes it a risky default choice. Overall, CO-DC under the two-tier architecture provides the best balance of performance, fairness, and robustness across operating regimes.*
+
+---
+
+## 6. Results
+Please add the exact directory in plot_v4 and main.py to generate the figures. All the figures will go to Journal_figure folder. If any issue encounter during the simulation run time please fon't hesitate to contact us
+Acknowledgment: This work is performed in the Advanced Network and Embedded systems Lab under the supervision of Prof. Peng Hu at university of Manitoba.
+Please cite “A. iqbal, M. Alhassan and P. Hu, “Constellation-Level Power Allocation for Space-Based Solar Power: A Two-Tier Scheduling Framework with Optimality Bounds.”
